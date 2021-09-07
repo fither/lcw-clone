@@ -40,3 +40,12 @@
 .person-action:hover {
   background-color: #bdbdbd;
 }
+
+.person-delete-dialog {
+  position: absolute;
+  z-index: 2;
+  background-color: red;
+  color: #FFF;
+  border-radius: 15px;
+  padding: .5rem;
+}
