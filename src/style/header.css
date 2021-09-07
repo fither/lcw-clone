@@ -1,0 +1,35 @@
+header {
+  width: 100%;
+  height: auto;
+  background-color: #eeeeee;
+}
+
+ul {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+
+li {
+  width: auto;
+  margin: auto;
+  padding: 1rem 0;
+}
+
+li a {
+  text-decoration: none;
+  color: rgb(129, 129, 129);
+  background-color: #dedede;
+  border-radius: 5px;
+  padding: .5rem;
+}
+
+li a:hover {
+  background-color: #d7d7d7;
+  color: rgb(100, 100, 100);
+}
