@@ -58,7 +58,7 @@
 .question-box-exit {
   position: relative;
   margin-left: auto;
-  font-size: 2rem;
+  font-size: 1.5rem;
   outline: none;
   border: .05rem solid purple;
   color: purple;
@@ -66,6 +66,11 @@
   width: 50px;
   height: 50px;
   cursor: pointer;
+}
+
+.question-box-exit:hover {
+  background-color: rgb(150, 20, 150);
+  color: #ececec;
 }
 
 .question-describe {

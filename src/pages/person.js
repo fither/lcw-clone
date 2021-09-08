@@ -1,8 +1,8 @@
 import React from 'react';
-import AddPerson from './operations/addPerson';
-import PersonList from './operations/personList';
+import AddPerson from '../components/person/addPerson';
+import PersonList from '../components/person/personList';
 import { Link, Switch, Route } from 'react-router-dom';
-import '../../style/header.css';
+import '../style/header.css';
 
 export default class Person extends React.Component {
   state = {

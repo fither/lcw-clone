@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Home from './home/home';
-import Person from './person/person';
-import Auth from './auth/auth';
+import Home from '../../pages/home';
+import Person from '../../pages/person';
+import Auth from '../../pages/auth';
 
 export default class Main extends Component {
   render() {
@@ -13,7 +13,7 @@ export default class Main extends Component {
             <Home />
           </Route>
           <Route path="/auth">
-            <Auth authName="john"/>
+            <Auth authName="john" />
           </Route>
           <Route exact path="/person">
             <Person />

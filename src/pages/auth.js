@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import ClassBased from '../tests/ClassBased';
+import ClassBased from '../components/tests/ClassBased';
 
 class App extends Component {
   state = {

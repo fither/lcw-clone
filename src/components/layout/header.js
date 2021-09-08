@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import '../../style/header.css'
 
 export default class Header extends Component {
   state = {
@@ -50,13 +51,18 @@ export default class Header extends Component {
               <li className="nav-item">
                 <Link className="nav-link" to="/auth">Auth</Link>
               </li>
-              <li className="nav-item dropdown">
+              <li
+                className="nav-item dropdown"
+                onMouseLeave={this.closeDropdown}
+              >
                 <Link
                   className="nav-link dropdown-toggle"
                   to="/person"
                   onMouseOver={this.openDropdown}
                 >Person</Link>
-                <div className={"dropdown-menu " + dropdownShow} onMouseLeave={this.closeDropdown}>
+                <div
+                  className={"dropdown-menu " + dropdownShow}
+                >
                   <Link className="dropdown-item" to="/person/list">
                     Person List
                   </Link>

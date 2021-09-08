@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import QuestionYesNo from '../../shared/questionYesNo';
+import QuestionYesNo from '../shared/questionYesNo';
+import '../../style/person.css';
 
 function NewPersonList(props) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
