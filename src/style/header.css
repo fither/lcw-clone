@@ -1,10 +1,4 @@
-header {
-  width: 100%;
-  height: auto;
-  background-color: #eeeeee;
-}
-
-ul {
+.person-navbar ul {
   width: 100%;
   height: 100%;
   padding: 0;
@@ -15,13 +9,13 @@ ul {
   list-style: none;
 }
 
-li {
+.person-navbar li {
   width: auto;
   margin: auto;
   padding: 1rem 0;
 }
 
-li a {
+.person-navbar li a {
   text-decoration: none;
   color: rgb(129, 129, 129);
   background-color: #dedede;
@@ -29,7 +23,7 @@ li a {
   padding: .5rem;
 }
 
-li a:hover {
+.person-navbar li a:hover {
   background-color: #d7d7d7;
   color: rgb(100, 100, 100);
 }

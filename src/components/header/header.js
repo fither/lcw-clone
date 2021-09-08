@@ -1,18 +1,76 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import '../../style/header.css';
 
 export default class Header extends Component {
+  state = {
+    isMenuOpen: false,
+    isDropdownOpen: false
+  }
+
+  toggleMenu = () => {
+    const isMenuOpen = this.state.isMenuOpen;
+    this.setState({ isMenuOpen: !isMenuOpen });
+  }
+
+  openDropdown = () => {
+    this.setState({ isDropdownOpen: true });
+  }
+
+  closeDropdown = () => {
+    this.setState({ isDropdownOpen: false });
+  }
+
   render() {
+    const show = this.state.isMenuOpen ? 'show' : '';
+    const dropdownShow = this.state.isDropdownOpen ? 'show' : '';
+
     return (
       <header>
-        <nav>
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/auth">Auth</Link></li>
-            <li><Link to="/person">Person</Link></li>
-            <li><Link to={{ pathname: '/person/john' }}>Person John</Link></li>
-          </ul>
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <a className="navbar-brand" href="/">
+
+          </a>
+          <button
+            className="navbar-toggler"
+            type="button"
+            onClick={this.toggleMenu}
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+
+          <div
+            className={
+              "navbar-collapse collapse " + show
+            }
+          >
+            <ul className="navbar-nav mr-auto">
+              <li className="nav-item active">
+                <Link className="nav-link" to="/">Home</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/auth">Auth</Link>
+              </li>
+              <li className="nav-item dropdown">
+                <Link
+                  className="nav-link dropdown-toggle"
+                  to="/person"
+                  onMouseOver={this.openDropdown}
+                >Person</Link>
+                <div className={"dropdown-menu " + dropdownShow} onMouseLeave={this.closeDropdown}>
+                  <Link className="dropdown-item" to="/person/list">
+                    Person List
+                  </Link>
+                  <Link className="dropdown-item" to="/person/add">
+                    Person Add
+                  </Link>
+                  <div className="dropdown-divider"></div>
+                  <Link className="dropdown-item" to="/person">
+                    #
+                  </Link>
+                </div>
+              </li>
+            </ul>
+          </div>
         </nav>
       </header>
     )

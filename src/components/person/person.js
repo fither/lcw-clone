@@ -1,7 +1,9 @@
 import React from 'react';
 import AddPerson from './operations/addPerson';
 import PersonList from './operations/personList';
+import NewPersonList from './operations/newPersonList';
 import { Link, Switch, Route } from 'react-router-dom';
+import '../../style/header.css';
 
 export default class Person extends React.Component {
   state = {
@@ -42,7 +44,8 @@ export default class Person extends React.Component {
       <div>
         {
           this.state.persons.map((person, index) => {
-            return <PersonList key={index} person={person} click={() => this.deletePerson(index)} />;
+            // return <PersonList key={index} person={person} click={() => this.deletePerson(index)} />;
+            return <NewPersonList key={index} person={person} deleteHandler={() => this.deletePerson(index)} />;
           })
         }
       </div>
@@ -51,7 +54,7 @@ export default class Person extends React.Component {
     return (
       <div>
         <div className="person-navbar">
-          <nav>
+          <nav className="person-navbar">
             <ul>
               <li><Link to="/person/list">Person List</Link></li>
               <li><Link to="/person/add">Person Add</Link></li>

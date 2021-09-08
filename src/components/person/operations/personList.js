@@ -35,7 +35,7 @@ export default class PersonList extends React.Component {
           className="person-action"
           onMouseOver={() => this.onMouseOverHandler(this.props.person.name.first)}
           onMouseOut={() => this.onMouseOutHandler()}
-          onClick={this.props.click}
+          onClick={this.props.deleteHandler}
         >
           Sil
         </button>

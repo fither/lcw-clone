@@ -1,0 +1,122 @@
+.question-wrapper,
+.question-wrapper-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.question-wrapper { z-index: 98;}
+
+.question-box {
+  width: auto;
+  height: auto;
+  min-width: 400px;
+  min-height: 200px;
+  position: relative;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #ececec;
+  z-index: 100;
+}
+
+.question-box.box-animated {
+  animation: size-change 250ms cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+@keyframes size-change {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+.question-title {
+  width: calc(100% - 1rem);
+  border-radius: 5px 5px 0 0;
+  height: auto;
+  padding: .5rem;
+  color: rgb(170, 20, 170);
+  border-bottom: .1rem solid rgb(170, 20, 170);
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.question-box-exit {
+  position: relative;
+  margin-left: auto;
+  font-size: 2rem;
+  outline: none;
+  border: .05rem solid purple;
+  color: purple;
+  border-radius: 5rem;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.question-describe {
+  padding: .5rem 0;
+  font-size: 1.25rem;
+  flex: 1;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.question-actions {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.question-button {
+  padding: .5rem;
+  margin: 0 1.5rem;
+  outline: none;
+  border: .1rem solid rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  font-size: 1.25rem;
+  color: rgb(243, 243, 243);
+  cursor: pointer;
+}
+
+.question-button.answer-yes {
+  background-color: rgb(170, 20, 170);
+}
+
+.question-button.answer-yes:hover {
+  background-color: rgb(150, 20, 150);
+}
+
+.question-button.answer-no {
+  border-color: rgb(170, 20, 170);
+  color: rgb(170, 20, 170);
+}
+
+.question-button.answer-no:hover {
+  background-color: rgb(170, 0, 170);
+  color: #FFF;
+}
+
