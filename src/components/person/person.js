@@ -1,6 +1,5 @@
 import React from 'react';
 import AddPerson from './operations/addPerson';
-import PersonList from './operations/personList';
 import NewPersonList from './operations/newPersonList';
 import { Link, Switch, Route } from 'react-router-dom';
 import '../../style/header.css';
