@@ -1,6 +1,6 @@
 import React from 'react';
 import AddPerson from './operations/addPerson';
-import NewPersonList from './operations/newPersonList';
+import PersonList from './operations/personList';
 import { Link, Switch, Route } from 'react-router-dom';
 import '../../style/header.css';
 
@@ -44,7 +44,7 @@ export default class Person extends React.Component {
         {
           this.state.persons.map((person, index) => {
             // return <PersonList key={index} person={person} click={() => this.deletePerson(index)} />;
-            return <NewPersonList key={index} person={person} deleteHandler={() => this.deletePerson(index)} />;
+            return <PersonList key={index} person={person} deleteHandler={() => this.deletePerson(index)} />;
           })
         }
       </div>

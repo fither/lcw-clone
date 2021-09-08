@@ -1,46 +1,44 @@
-import React from 'react';
-import '../../../style/person.css';
+import { useState } from 'react';
+import QuestionYesNo from '../../shared/questionYesNo';
 
-export default class PersonList extends React.Component {
-  state = {
-    mouseOverName: ''
+function NewPersonList(props) {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modalTitle, setModalTitle] = useState('');
+  const [modalDesc, setModalDesc] = useState('');
+
+  function deleteHander() {
+    setModalTitle('Kişi Silme');
+    setModalDesc(`${props.person.name.first} kişisini silmek istediğinize emin misiniz?`);
+    setModalIsOpen(true);
   }
 
-  onMouseOverHandler(name) {
-    // alert(`Gerçekten ${name} kişisini silecek misin?`);
-    this.setState({ mouseOverName: name });
-  }
+  function questionResult(result) {
+    if (result !== '') {
+      setModalIsOpen(false);
 
-  onMouseOutHandler() {
-    this.setState({ mouseOverName: '' });
-  }
-
-  render() {
-    let mouseOverDialog = null;
-
-    if (this.state.mouseOverName !== '') {
-      mouseOverDialog = (
-        <div className="person-delete-dialog">
-          Gerçekten {this.state.mouseOverName} kişisini silecek misin?
-        </div>
-      )
+      if (result === 'yes') {
+        props.deleteHandler();
+      }
     }
+    console.log(result);
+  }
 
-    return (
+  return (
+    <div>
+      {modalIsOpen && <QuestionYesNo title={modalTitle} desc={modalDesc} result={questionResult} />}
       <div className="person-wrapper">
-        <img className="person-image" src={this.props.person.picture.medium} alt="Profile Pic" />
-        <h2 className="person-name">{this.props.person.name.first}</h2>
-        <h3 className="person-gender">{this.props.person.gender}</h3>
+        <img className="person-image" src={props.person.picture.medium} alt="Profile Pic" />
+        <h2 className="person-name">{props.person.name.first}</h2>
+        <h3 className="person-gender">{props.person.gender}</h3>
         <button
-          className="person-action"
-          onMouseOver={() => this.onMouseOverHandler(this.props.person.name.first)}
-          onMouseOut={() => this.onMouseOutHandler()}
-          onClick={this.props.deleteHandler}
+          className="btn btn-danger"
+          onClick={deleteHander}
         >
           Sil
         </button>
-        {mouseOverDialog}
       </div>
-    )
-  }
+    </div>
+  )
 }
+
+export default NewPersonList;
