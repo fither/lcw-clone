@@ -2,70 +2,24 @@ import React from 'react';
 import AddPerson from '../components/person/addPerson';
 import PersonList from '../components/person/personList';
 import { Link, Switch, Route } from 'react-router-dom';
-import '../style/header.css';
+import classes from '../style/person/person-header.module.css';
 
 export default class Person extends React.Component {
-  state = {
-    persons: [],
-    apiURL: 'https://randomuser.me/api/?results=3'
-  };
-
-  showHidePersons = (e) => {
-    e.preventDefault();
-    const isVisible = this.state.isPersonsVisible;
-    this.setState({ isPersonsVisible: !isVisible });
-  };
-
-  deletePerson = (personIndex) => {
-    const persons = [...this.state.persons];
-    persons.splice(personIndex, 1);
-    this.setState({ persons: persons });
-  };
-
-  addPerson = (person) => {
-    const persons = [...this.state.persons];
-    persons.push(person);
-    this.setState({ persons: persons });
-  };
-
-  componentDidMount() {
-    fetch(this.state.apiURL)
-      .then(results => { return results.json(); })
-      .then(data => {
-        this.setState({ persons: data.results })
-      });
-  }
-
   render() {
-    let persons = null;
-
-    persons = (
-      <div>
-        {
-          this.state.persons.map((person, index) => {
-            // return <PersonList key={index} person={person} click={() => this.deletePerson(index)} />;
-            return <PersonList key={index} person={person} deleteHandler={() => this.deletePerson(index)} />;
-          })
-        }
-      </div>
-    );
-
     return (
       <div>
-        <div className="person-navbar">
-          <nav className="person-navbar">
-            <ul>
-              <li><Link to="/person/list">Person List</Link></li>
-              <li><Link to="/person/add">Person Add</Link></li>
-            </ul>
-          </nav>
-        </div>
+        <nav className={classes['person-navbar']}>
+          <ul>
+            <li><Link to="/person/list">Person List</Link></li>
+            <li><Link to="/person/add">Person Add</Link></li>
+          </ul>
+        </nav>
         <Switch>
           <Route path="/person/list">
-            {persons}
+            <PersonList />
           </Route>
           <Route path="/person/add">
-            <AddPerson addPerson={(person) => this.addPerson(person)} />
+            <AddPerson />
           </Route>
         </Switch>
       </div>

@@ -1,41 +1,75 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import classes from '../../style/person/addPerson.module.css';
+import { useHistory } from 'react-router-dom';
 
-export default class AddPerson extends React.Component {
-  types = {
-    NAME: 'name',
-    GENDER: 'gender',
-    ID: 'id'
-  };
+function AddPerson(props) {
+  const firstNameInputRef = useRef();
+  const lastNameInputRef = useRef();
 
-  state = {
-    name: '',
-    gender: '',
-    id: ''
-  };
+  const apiURL = 'https://react-learning-304fa-default-rtdb.firebaseio.com/users.json';
 
-  textChanged = (event, type) => {
-    this.setState({ [type]: event.target.value });
-  };
+  const history = useHistory();
 
-  render() {
-    return (
-      <div style={{ margin: '0 auto' }}>
-        <div>
-          <div>
-            <p>Name</p>
-            <input type="text" value={this.state.name} onChange={(event) => this.textChanged(event, this.types.NAME)} />
-          </div>
-          <div>
-            <p>Gender</p>
-            <input type="text" value={this.state.gender} onChange={(event) => this.textChanged(event, this.types.GENDER)} />
-          </div>
-          <div>
-            <p>ID</p>
-            <input type="text" value={this.state.id} onChange={(event) => this.textChanged(event, this.types.ID)} />
-          </div>
-        </div>
-        <button className="button info" onClick={() => this.props.addPerson(this.state)}>Ekle</button>
-      </div>
-    )
+  const submitHandler = (event) => {
+    event.preventDefault();
+
+    const enteredFirstName = firstNameInputRef.current.value;
+    const enteredLastName = lastNameInputRef.current.value;
+
+    const person = {
+      name: {
+        first: enteredFirstName,
+        last: enteredLastName
+      }
+    }
+
+    addPerson(person);
   }
+
+
+  const addPerson = (person) => {
+    fetch(
+      apiURL,
+      {
+        method: 'POST',
+        body: JSON.stringify(person),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+    ).then(() => {
+      history.replace('/person/list');
+    });
+  };
+
+  return (
+    <form className={classes['form-wrapper']} onSubmit={submitHandler}>
+      <div className="form-item">
+        <label htmlFor="user-name">First Name: </label>
+        <input
+          type="text"
+          id="user-firstname"
+          ref={firstNameInputRef}
+        />
+      </div>
+      <div className="form-item">
+        <label htmlFor="user-gender">Last Name: </label>
+        <input
+          type="text"
+          id="user-lastname"
+          ref={lastNameInputRef}
+        />
+      </div>
+      <div className="form-actions">
+        <button
+          className="btn btn-primary"
+          type="submit"
+        >
+          Ekle
+        </button>
+      </div>
+    </form>
+  )
 }
+
+export default AddPerson;
