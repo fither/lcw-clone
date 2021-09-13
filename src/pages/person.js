@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import AddPerson from '../components/person/addPerson';
 import PersonList from '../components/person/personList';
 import Favourites from '../components/person/favourites';
@@ -10,7 +10,7 @@ export default function Person() {
   const favoritesCtx = useContext(FavoritesContext);
 
   return (
-    <div>
+    <React.Fragment>
       <nav className={classes['person-navbar']}>
         <ul>
           <li><Link to="/person/list">Person List</Link></li>
@@ -29,6 +29,6 @@ export default function Person() {
           <Favourites />
         </Route>
       </Switch>
-    </div>
+    </React.Fragment>
   )
 }

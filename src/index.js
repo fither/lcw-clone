@@ -6,15 +6,18 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FavoritesContextProvider } from './store/favourites-context';
+import { PeopleContextProvider } from './store/people-context';
 
 ReactDOM.render((
-  <FavoritesContextProvider>
-    <React.StrictMode>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </React.StrictMode>
-  </FavoritesContextProvider>
+  <PeopleContextProvider>
+    <FavoritesContextProvider>
+      <React.StrictMode>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </React.StrictMode>
+    </FavoritesContextProvider>
+  </PeopleContextProvider>
 ),
   document.getElementById('root')
 );

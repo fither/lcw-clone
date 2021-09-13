@@ -1,4 +1,5 @@
-import React, { useRef } from 'react';
+import React, { useRef, useContext } from 'react';
+import PeopleContext from '../../store/people-context';
 import classes from '../../style/person/addPerson.module.css';
 import { useHistory } from 'react-router-dom';
 
@@ -6,11 +7,12 @@ function AddPerson(props) {
   const firstNameInputRef = useRef();
   const lastNameInputRef = useRef();
 
-  const apiURL = 'https://react-learning-304fa-default-rtdb.firebaseio.com/users.json';
+  const peopleCtx = useContext(PeopleContext);
+
 
   const history = useHistory();
 
-  const submitHandler = (event) => {
+  const submitHandler = async (event) => {
     event.preventDefault();
 
     const enteredFirstName = firstNameInputRef.current.value;
@@ -23,24 +25,18 @@ function AddPerson(props) {
       }
     }
 
-    addPerson(person);
-  }
-
-
-  const addPerson = (person) => {
-    fetch(
-      apiURL,
-      {
-        method: 'POST',
-        body: JSON.stringify(person),
-        headers: {
-          'Content-Type': 'application/json'
-        }
+    peopleCtx.isPersonExist(person)
+    .then((response) => {
+      if(!response) {
+        peopleCtx.addPerson(person)
+        .then(() => {
+          history.replace('/person/list');
+        })
+      } else {
+        console.log('this user exist');
       }
-    ).then(() => {
-      history.replace('/person/list');
     });
-  };
+  }
 
   return (
     <form className={classes['form-wrapper']} onSubmit={submitHandler}>
