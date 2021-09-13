@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import QuestionYesNo from '../shared/questionYesNo';
+import PersonItem from './personItem';
 import '../../style/person/person.css';
 
 function PersonList(props) {
@@ -39,6 +40,10 @@ function PersonList(props) {
     setModalIsOpen(true);
   }
 
+  function toggleFavoriteHandler(person) {
+
+  }
+
   function questionResult(result) {
     if (result !== '') {
       setModalIsOpen(false);
@@ -74,16 +79,12 @@ function PersonList(props) {
         {
           people.map((person) => {
             return (
-            <div className="person-wrapper" key={person.id}>
-              <h2 className="person-firstname">{person.name.first}</h2>
-              <h3 className="person-lastname">{person.name.last}</h3>
-              <button
-                className="btn btn-danger"
-                onClick={() => deleteHandler(person)}
-              >
-                Sil
-              </button>
-            </div>
+              <PersonItem 
+                key={person.id} 
+                person={person} 
+                deleteHandler={deleteHandler} 
+                addToFavoriteHandler={toggleFavoriteHandler}
+              ></PersonItem>
             )
           })
         }

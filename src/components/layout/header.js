@@ -68,6 +68,9 @@ export default class Header extends Component {
                   <Link className="dropdown-item" to="/person/add">
                     Person Add
                   </Link>
+                  <Link className="dropdown-item" to="/person/favorites">
+                    Favorites
+                  </Link>
                   <div className="dropdown-divider"></div>
                   <Link className="dropdown-item" to="/person">
                     #
