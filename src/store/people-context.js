@@ -24,7 +24,7 @@ export function PeopleContextProvider(props) {
         for (const key in data) {
           const person = {
             id: key,
-            ...data[key]
+            name: data[key].name
           }
           people.push(person);
         }
@@ -51,10 +51,9 @@ export function PeopleContextProvider(props) {
 
   async function removePersonHandler(person) {
     await fetch(
-      apiURL,
+      apiURL.split('.json')[0] + '/' + person.id + '.json',
       {
         method: 'DELETE',
-        body: JSON.stringify(person),
         headers: {
           'Content-Type': 'application/json'
         }

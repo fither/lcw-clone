@@ -14,7 +14,7 @@ export default class QuestionYesNo extends Component {
   }
 
   responseHandler(response) {
-    this.props.result(response);
+    this.props.result(response, this.props.person);
   }
 
   render() {

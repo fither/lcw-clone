@@ -5,9 +5,13 @@ import PersonItem from './personItem';
 function Favourites() {
   const favoritesCtx = useContext(FavoritesContext);
   const favorites = favoritesCtx.favorites;
+  const isLoading = favoritesCtx.isLoading;
 
   useEffect(() => {
-    fetchFavorites();
+    if(!isLoading) {
+      fetchFavorites();
+    }
+    // eslint-disable-next-line
   }, []);
 
   function fetchFavorites() {
@@ -24,7 +28,14 @@ function Favourites() {
         <h1>My Favorites</h1>
         {
           favorites.map((favorite) => {
-            return <PersonItem key={favorite.id} person={favorite} />
+            return (
+              <PersonItem 
+                key={favorite.id} 
+                person={favorite} 
+                fetch={fetchFavorites}
+                inFavorites={true}
+              />
+            )
           })
         }
       </React.Fragment>

@@ -25,14 +25,14 @@ export function FavoritesContextProvider(props) {
       for(const key in data) {
         const favorite = {
           id: key,
-          ...data[key]
+          name: data[key].name
         }
 
         favorites.push(favorite);
       }
 
-      setUserFavorites(favorites);
       setIsLoading(false);
+      setUserFavorites(favorites);
     })
   }
 
@@ -53,10 +53,9 @@ export function FavoritesContextProvider(props) {
 
   function removeFavoriteHandler(favoritePerson) {
     fetch(
-      apiURL,
+      apiURL.split('.json')[0] + '/' + favoritePerson.id + '.json',
       {
         method: 'DELETE',
-        body: JSON.stringify(favoritePerson),
         headers: {
           'Content-Type': 'application/json'
         }
@@ -73,7 +72,7 @@ export function FavoritesContextProvider(props) {
   const context = {
     favorites: userFavorites,
     totalFavorites: userFavorites.length,
-    isLoading: false,
+    isLoading: isLoading,
     fetchFavorites: fetchfavoritesHandler,
     addFavorite: addFavoriteHandler,
     removeFavorite: removeFavoriteHandler,

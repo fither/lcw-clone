@@ -15,6 +15,7 @@ function PersonList(props) {
 
   useEffect(() => {
     fetchPeople();
+    // eslint-disable-next-line
   }, []);
   
   if(!isLoading) {
@@ -26,7 +27,8 @@ function PersonList(props) {
               <PersonItem 
                 key={person.id} 
                 person={person} 
-                fetchPeople={() => fetchPeople()}
+                fetch={() => fetchPeople()}
+                inFavorites={false}
               ></PersonItem>
             )
           })
