@@ -8,8 +8,7 @@ function AddPerson(props) {
   const lastNameInputRef = useRef();
 
   const peopleCtx = useContext(PeopleContext);
-
-
+  
   const history = useHistory();
 
   const submitHandler = async (event) => {

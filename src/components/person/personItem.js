@@ -13,7 +13,7 @@ function PersonItem(props) {
   const peopleCtx = useContext(PeopleContext);
 
   const favoritesCtx = useContext(FavoritesContext);
-  const itemIsFavorite = favoritesCtx.itemIsFavorite(props.person.id);
+  const itemIsFavorite = favoritesCtx.itemIsFavorite(props.person);
 
   function toggleFavoriteHandler(person) {
     if(itemIsFavorite) {

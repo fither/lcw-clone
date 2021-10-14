@@ -1,37 +1,66 @@
-import { Component } from 'react';
-import ClassBased from '../components/tests/ClassBased';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as userActions from '../actions/userActions';
 
-class App extends Component {
-  state = {
-    isAuthenticated: false
-  };
+function Auth(props) {
+  const [username, setUserName] = useState('')
+  const [password, setPassword] = useState('');
 
-  authenticate = (e) => {
-    e.preventDefault();
-    this.setState({ isAuthenticated: true });
+  const isLoading = false;
+
+  const loginHandler = async (event) => {
+    event.preventDefault();
+
+    const auth = {
+      Username: username,
+      Password: password
+    }
+    props.actions.login(auth);
   }
 
-  logout = (e) => {
-    e.preventDefault();
-    this.setState({ isAuthenticated: false });
-  }
-
-  changeState = () => {
-    this.setState({ type: 'functional' });
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <ClassBased
-          isAuthenticated={this.state.isAuthenticated}
-          authenticate={this.authenticate}
-          logout={this.logout}
-          authName={this.props.authName}
-        ></ClassBased>
-      </div>
-    )
-  }
+  return (
+    <React.Fragment>
+      <form onSubmit={loginHandler}>
+        <label htmlFor="username">Username</label>
+        <input 
+          type="text" 
+          id="username" 
+          value={username}
+          onChange={(e) => setUserName(e.target.value)}
+        ></input>
+        <label htmlFor="password">Password</label>
+        <input 
+          type="text" 
+          id="password" 
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        ></input>
+        {
+          <p>{ props.error ? props.error.data : '' }</p>
+        }
+        <button 
+          type="submit"
+          disabled={isLoading}  
+        >Login</button>
+      </form>
+    </React.Fragment>
+  )
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    user: state.userReducer.user,
+    error: state.userReducer.error
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: {
+      login: bindActionCreators(userActions.login, dispatch),
+    },
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Auth);

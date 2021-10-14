@@ -26,7 +26,7 @@ export default class Header extends Component {
 
     return (
       <header>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-md navbar-light bg-light">
           <a className="navbar-brand" href="/">
 
           </a>
@@ -40,7 +40,7 @@ export default class Header extends Component {
 
           <div
             className={
-              "navbar-collapse collapse " + show
+              "navbar-collapse justify-content-center collapse " + show
             }
           >
             <ul className="navbar-nav mr-auto">
@@ -48,7 +48,13 @@ export default class Header extends Component {
                 <Link className="nav-link" to="/">Home</Link>
               </li>
               <li className="nav-item">
+                <Link className="nav-link" to="/users">Users</Link>
+              </li>
+              <li className="nav-item">
                 <Link className="nav-link" to="/auth">Auth</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/products">Products</Link>
               </li>
               <li
                 className="nav-item dropdown"

@@ -65,8 +65,8 @@ export function FavoritesContextProvider(props) {
     });
   }
 
-  function itemIsFavoriteHandler(personId) {
-    return userFavorites.some(person => person.id === personId);
+  function itemIsFavoriteHandler(person) {
+    return userFavorites.some(p => p.name === person.name);
   }
 
   const context = {
