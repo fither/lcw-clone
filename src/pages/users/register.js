@@ -3,6 +3,5 @@ export default function register() {
     <div>
       register
     </div>
-
   )
 }

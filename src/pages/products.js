@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux'; 
 import { bindActionCreators } from 'redux';
-import * as productActions from '../actions/productActions';
+import actions from '../actions/product';
 
 function Products(props) {
   useEffect(() => {
@@ -15,6 +15,7 @@ function Products(props) {
   
   return (
     <div>
+      { props.error ? props.error.data : '' }
       <h1>Products</h1>
       <table className="table">
         <thead>
@@ -27,6 +28,13 @@ function Products(props) {
         </thead>
         <tbody>
           {
+            props.isLoading ?
+            <tr>
+              <td colSpan={ 4 }>
+                Loading...
+              </td>
+            </tr> :
+            props.products && props.products.length ?
             props.products.map((product) => {
               return (
                 <tr key={product.id}>
@@ -36,7 +44,12 @@ function Products(props) {
                   <td>{ product.price }</td>
                 </tr>
               )
-            }) 
+            }) :
+            <tr>
+              <td colSpan={ 4 }>
+                No Data
+              </td>
+            </tr>
           }
         </tbody>
       </table>
@@ -46,14 +59,16 @@ function Products(props) {
 
 function mapStateToProps(state) {
   return {
-    products: state.productReducer.products
+    products: state.product.products,
+    error: state.product.error,
+    isLoading: state.product.isLoading
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     actions: {
-      getProducts: bindActionCreators(productActions.getProducts, dispatch),
+      getProducts: bindActionCreators(actions.getProducts, dispatch),
     },
   };
 }

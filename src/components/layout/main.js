@@ -1,37 +1,30 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import PrivateRoute from '../../utils/authComponent';
 import Home from '../../pages/home';
 import Person from '../../pages/person';
-import Auth from '../../pages/auth';
-import Users from '../../pages/users';
+import ListUsers from '../../pages/users/listUsers'
 import Products from '../../pages/products';
-import classes from '../../style/layout/main.module.css';
+import Login from '../../pages/users/login';
+import Logout from '../../pages/users/logout';
+import Register from '../../pages/users/register';
 
-export default class Main extends Component {
-  render() {
-    return (
-      <main className={classes['main-wrapper']}>
+const Main = (props) => {
+  return (
+    <main className="container">
+      {
         <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/auth">
-            <Auth />
-          </Route>
-          <Route exact path="/person">
-            <Person />
-          </Route>
-          <Route path="/person/:person">
-            <Person personName="John" />
-          </Route>
-          <Route path="/users">
-            <Users />
-          </Route>
-          <Route path="/products">
-            <Products />
-          </Route>
+          <PrivateRoute exact path="/" component={Home}></PrivateRoute>
+          <PrivateRoute exact path="/person" component={Person}></PrivateRoute>
+          <PrivateRoute exact path="/users" component={ListUsers}></PrivateRoute>
+          <PrivateRoute exact path="/products" component={Products}></PrivateRoute>
+          <Route exact path="/users/login" component={Login}></Route>
+          <Route exact path="/users/logout" component={Logout}></Route>
+          <Route exact path="/users/register" component={Register}></Route>
         </Switch>
-      </main>
-    )
-  }
+      }
+    </main>
+  )
 }
+
+export default Main;

@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
+import { Fragment } from 'react';
 import Header from './components/layout/header';
 import Main from './components/layout/main';
 
-export default class App extends Component {
-  render() {
-    return (
-      <React.Fragment>
-        <Header />
-        <Main />
-      </React.Fragment>
-    )
-  }
+const App = (props) => {
+  return (
+    <Fragment>
+      <Header />
+      <Main />
+    </Fragment>
+  )
 }
+
+export default App;
