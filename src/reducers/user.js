@@ -12,9 +12,8 @@ export default function userReducer(state = initial_state, action) {
     case types.LOGIN:
       return {
         ...state,
-        user: action.user, 
-        error: action.error, 
-        isLoading: action.isLoading 
+        user: action.user,
+        error: action.error
       }
     case types.FETCH_USERS:
       return {
@@ -37,12 +36,16 @@ export default function userReducer(state = initial_state, action) {
         error: action.error,
         isLoading: action.isLoading
       }
+    case types.LOADING:
+      return {
+        ...state,
+        isLoading: action.isLoading
+      }
     case types.LOGOUT:
       return {
         ...state,
         user: {},
-        error: {},
-        isLoading: false
+        error: {}
       }
     case types.LOGIN_CLEAR_ERRORS:
       return { error: action.payload }

@@ -7,11 +7,10 @@ const creators = {
     error,
     isLoading
   }),
-  login: ({user, error, isLoading}) => ({
+  login: ({user, error}) => ({
     type: types.LOGIN,
     user,
     error,
-    isLoading
   }),
   getCurrentUser: ({ user, error, isLoading }) => ({
     type: types.GET_CURRENT_USER,
@@ -23,6 +22,10 @@ const creators = {
     type: types.REGISTER,
     user,
     error,
+    isLoading
+  }),
+  loading: (isLoading) => ({
+    type: types.LOADING,
     isLoading
   }),
   logout: () => ({

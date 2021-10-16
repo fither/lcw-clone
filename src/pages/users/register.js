@@ -108,6 +108,9 @@ function Register(props) {
               onChange={(e) => setPasswordAgain(e.target.value)}
             ></input>
           </div>
+          {
+            props.error ? props.error.data : ''
+          }
           <div className="form-action">
             <button 
               type="submit"
@@ -122,7 +125,8 @@ function Register(props) {
 
 function mapStateToProps(state) {
   return {
-    user: state.user.user
+    user: state.user.user,
+    error: state.user.error
   }
 }
 
