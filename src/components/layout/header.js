@@ -1,14 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getToken } from '../../utils/token';
 import { bindActionCreators } from 'redux';
-import * as userActions from '../../actions/user';
+import * as actions from '../../actions/user'
 
-function Header() {
+function Header(props) {
   const [show, setShow] = useState('');
   const [usersMenu, setIsUsersMenuOn] = useState('');
   const [personsMenu, setIsPersonsMenuOn] = useState('');
+
+  const checkUser = () => {
+    if(!!getToken()) {
+      props.actions.getCurrentUser()
+    }
+  }
+
+  useEffect(() => {
+    checkUser();
+    // eslint-disable-next-line
+  }, []);
 
   const toggleMenu = () => {
     show === '' ? setShow('show') : setShow('');
@@ -22,7 +33,7 @@ function Header() {
     item === 'users' ? setIsUsersMenuOn('') : setIsPersonsMenuOn('');
   }
 
-  const isLogged = getToken();
+  const isLogged = !!props.user && Object.keys(props.user).length;
 
   return (
     <header>
@@ -110,7 +121,6 @@ function Header() {
 }
 
 function mapStateToProps(state) {
-  console.log(state);
   return {
     user: state.user.user,
     error: state.user.error,
@@ -121,9 +131,9 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     actions: {
-      login: bindActionCreators(userActions.login, dispatch),
-    },
-  };
+      getCurrentUser: bindActionCreators(actions.getCurrentUser, dispatch)
+    }
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

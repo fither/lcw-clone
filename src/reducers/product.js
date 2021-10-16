@@ -9,7 +9,8 @@ const initial_state = {
 export default function productReducer(state = initial_state, action) {
   switch(action.type) {
     case types.GET_PRODUCTS:
-      return { 
+      return {
+        ...state,
         products: action.products,
         error: action.error,
         isLoading: action.isLoading

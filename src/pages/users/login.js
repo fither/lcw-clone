@@ -2,7 +2,7 @@ import { Fragment, useState } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 import { bindActionCreators } from 'redux';
-import * as userActions from '../../actions/user';
+import * as actions from '../../actions/user';
 import { getToken } from '../../utils/token';
 
 function Login(props) {
@@ -39,7 +39,7 @@ function Login(props) {
           <div className="form-group">
             <label htmlFor="password">Password</label>
             <input 
-              type="text" 
+              type="password" 
               id="password" 
               className="form-control"
               value={password}
@@ -71,7 +71,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     actions: {
-      login: bindActionCreators(userActions.login, dispatch),
+      login: bindActionCreators(actions.login, dispatch),
     },
   };
 }
