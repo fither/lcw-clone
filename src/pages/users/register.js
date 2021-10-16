@@ -48,27 +48,27 @@ function Register(props) {
     <div>
       <div className="col-12 col-md-6 h-100 w-100 justify-content-center d-flex">
         <form className="form" onSubmit={registerHandler}>
-          <div className="form-group">
-            <label htmlFor="name">Name</label>
+          <div className="form-group mb-2">
+            <label htmlFor="firstname">Name</label>
             <input
               type="text"
-              id="name"
+              id="firstname"
               className="form-control"
               value={name}
               onChange={(e) => setName(e.target.value)}
             ></input>
           </div>
-          <div className="form-group">
-            <label htmlFor="surname">Surname</label>
+          <div className="form-group mb-2">
+            <label htmlFor="lastname">Surname</label>
             <input
               type="text"
-              id="surname"
+              id="lastname"
               className="form-control"
               value={surname}
               onChange={(e) => setSurname(e.target.value)}
             ></input>
           </div>
-          <div className="form-group">
+          <div className="form-group mb-2">
             <label htmlFor="username">Username</label>
             <input
               type="text"
@@ -78,7 +78,7 @@ function Register(props) {
               onChange={(e) => setUsername(e.target.value)}
             ></input>
           </div>
-          <div className="form-group">
+          <div className="form-group mb-2">
             <label htmlFor="email">E-Mail</label>
             <input
               type="email"
@@ -88,7 +88,7 @@ function Register(props) {
               onChange={(e) => setEmail(e.target.value)}
             ></input>
           </div>
-          <div className="form-group">
+          <div className="form-group mb-2">
             <label htmlFor="password">Password</label>
             <input
               type="password"
@@ -98,7 +98,7 @@ function Register(props) {
               onChange={(e) => setPassword(e.target.value)}
             ></input>
           </div>
-          <div className="form-group">
+          <div className="form-group mb-2">
             <label htmlFor="password-again">Password (Again)</label>
             <input
               type="password"
@@ -109,13 +109,16 @@ function Register(props) {
             ></input>
           </div>
           {
-            props.error ? props.error.data : ''
+            props.result ? <p>{props.result}</p> : ''
           }
-          <div className="form-action">
-            <button 
-              type="submit"
-              className="btn btn-primary"
-            >Register</button>
+          <div className="form-group mb-2">
+            <div className="form-action">
+              <button 
+                type="submit"
+                className="btn btn-primary"
+                disabled={props.isLoading}
+              >Register</button>
+            </div>
           </div>
         </form>
       </div>
@@ -125,8 +128,8 @@ function Register(props) {
 
 function mapStateToProps(state) {
   return {
-    user: state.user.user,
-    error: state.user.error
+    result: state.user.registerResult,
+    isLoading: state.user.isLoading
   }
 }
 

@@ -74,6 +74,7 @@ function Header(props) {
                   <div className={ "dropdown-menu " + usersMenu }>
                     <Link className="dropdown-item" to="/users/register">Register</Link>
                     <Link className="dropdown-item" to="/users/login">Login</Link>
+                    <Link className="dropdown-item" to="/users/confirm">Confirm Account</Link>
                   </div>
                 ) : ''
               }

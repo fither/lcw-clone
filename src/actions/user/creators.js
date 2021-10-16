@@ -1,28 +1,30 @@
 import types from './types';
 
 const creators = {
-  fetch: ({userList, error, isLoading}) => ({
+  fetch: ({userList, fetchError}) => ({
     type: types.FETCH_USERS,
     userList,
-    error,
-    isLoading
+    fetchError
   }),
-  login: ({user, error}) => ({
+  login: ({user, loginError}) => ({
     type: types.LOGIN,
     user,
-    error,
+    loginError,
   }),
-  getCurrentUser: ({ user, error, isLoading }) => ({
+  getCurrentUser: ({ user, currentUserError }) => ({
     type: types.GET_CURRENT_USER,
     user,
-    error,
-    isLoading
+    currentUserError
   }),
-  register: ({user, error, isLoading}) => ({
+  register: ({result, registerError}) => ({
     type: types.REGISTER,
-    user,
-    error,
-    isLoading
+    result,
+    registerError
+  }),
+  confirm: ({result, confirmError}) => ({
+    type: types.CONFIRM,
+    result,
+    confirmError
   }),
   loading: (isLoading) => ({
     type: types.LOADING,

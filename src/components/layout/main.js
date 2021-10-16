@@ -8,6 +8,7 @@ import Products from '../../pages/products';
 import Login from '../../pages/users/login';
 import Logout from '../../pages/users/logout';
 import Register from '../../pages/users/register';
+import Confirm from '../../pages/users/confirm';
 
 const Main = (props) => {
   return (
@@ -21,6 +22,7 @@ const Main = (props) => {
           <Route exact path="/users/login" component={Login}></Route>
           <Route exact path="/users/logout" component={Logout}></Route>
           <Route exact path="/users/register" component={Register}></Route>
+          <Route exact path="/users/confirm" component={Confirm}></Route>
         </Switch>
       }
     </main>

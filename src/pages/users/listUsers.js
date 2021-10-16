@@ -62,7 +62,8 @@ function ListUsers(props) {
 
 function mapStateToProps(state) {
   return {
-    userList: state.user.userList
+    userList: state.user.userList,
+    error: state.user.fetchError
   }
 }
 

@@ -1,18 +1,26 @@
 import types from './types';
 
 const creators = {
-  getProducts: ({products, error, isLoading}) => ({
+  getProducts: ({products}) => ({
     type: types.GET_PRODUCTS,
-    products,
-    error,
+    products
+  }),
+  getCategories: ({categories}) => ({
+    type: types.GET_CATEGORIES,
+    categories
+  }),
+  delete: ({product}) => ({
+    type: types.DELETE_PRODUCT,
+    product
+  }),
+  add: ({product}) => ({
+    type: types.ADD_PRODUCT,
+    product
+  }),
+  loading: (isLoading) => ({
+    type: types.LOADING,
     isLoading
   }),
-  clear: (typeName) => ({
-    type: typeName,
-    products: [],
-    error: {},
-    isLoading: true
-  })
 }
 
 export default creators;

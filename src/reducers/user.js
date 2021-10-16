@@ -2,8 +2,8 @@ import types from '../actions/user/types';
 
 const initial_state = {
   user: {},
-  error: {},
   isLoading: false,
+  confirmResult: "",
   userList: []
 }
 
@@ -12,29 +12,27 @@ export default function userReducer(state = initial_state, action) {
     case types.LOGIN:
       return {
         ...state,
-        user: action.user,
-        error: action.error
+        user: action.user
       }
     case types.FETCH_USERS:
       return {
         ...state,
-        userList: action.userList,
-        error: action.error,
-        isLoading: action.isLoading
+        userList: action.userList
       }
     case types.GET_CURRENT_USER:
       return {
         ...state,
-        user: action.user,
-        error: action.error,
-        isLoading: action.isLoading
+        user: action.user
       }
     case types.REGISTER:
       return {
         ...state,
-        user: action.user,
-        error: action.error,
-        isLoading: action.isLoading
+        registerResult: action.result
+      }
+    case types.CONFIRM:
+      return {
+        ...state,
+        confirmResult: action.result
       }
     case types.LOADING:
       return {

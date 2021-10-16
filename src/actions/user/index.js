@@ -2,6 +2,7 @@ import creators from './creators';
 import Axios from '../../plugins/axios';
 import types from './types';
 import { setToken } from '../../utils/token';
+import { toast } from 'react-toastify';
 
 export function login(auth) {
   return async (dispatch) => {
@@ -12,12 +13,8 @@ export function login(auth) {
       if(!!response.data) {
         setToken(response.data.token);
         dispatch(creators.login({user: response.data}));
-      } else {
-        dispatch(creators.login({error: response.response}));
+        toast.success('Logged in successfully');
       }
-    })
-    .catch((err) => {
-      dispatch(creators.login({error: err.response}));
     });
     dispatch(creators.loading(false));
     dispatch(creators.clear(types.LOGIN));
@@ -27,17 +24,12 @@ export function login(auth) {
 export function register(auth) {
   return async (dispatch) => {
     dispatch(creators.loading(true))
-    Axios.post('/users', auth)
+    await Axios.post('/users', auth)
     .then((response) => {
       if(response.data) {
-        dispatch(response.data.token);
-        dispatch(creators.register({user: response.data}));
-      } else {
-        dispatch(creators.register({error: response.response}));
+        dispatch(creators.register({registerResult: response.data}));
+        toast.success(response.data);
       }
-    })
-    .catch((error) => {
-      dispatch(creators.register({error: error.response}));
     });
     dispatch(creators.loading(false))
   }
@@ -51,12 +43,7 @@ export function fetch() {
     .then((response) => {
       if(response.data) {
         dispatch(creators.fetch({userList: response.data}));
-      } else {
-        dispatch(creators.fetch({error: response.response}));
       }
-    })
-    .catch((error) => {
-      dispatch(creators.fetch({error: error.response}));
     });
 
     dispatch(creators.loading(false));
@@ -71,14 +58,23 @@ export function getCurrentUser() {
     .then((response) => {
       if(response.data) {
         dispatch(creators.getCurrentUser({user: response.data}));
-      } else {
-        dispatch(creators.getCurrentUser({error: response.response}));
       }
-    })
-    .catch((error) => {
-      dispatch(creators.getCurrentUser({error: error.response}));
     });
 
+    dispatch(creators.loading(false));
+  }
+}
+
+export function confirm(confirmForm) {
+  return async (dispatch) => {
+    dispatch(creators.loading(true));
+    Axios.post('/users/confirm', confirmForm)
+    .then((response) => {
+      if(response.data) {
+        dispatch(creators.confirm({confirmResult: response.data}));
+        toast.success(response.data);
+      }
+    });
     dispatch(creators.loading(false));
   }
 }
@@ -86,5 +82,6 @@ export function getCurrentUser() {
 export function logout() {
   return async (dispatch) => {
     dispatch(creators.logout());
+    toast.success('Logged out successfully');
   }
 }

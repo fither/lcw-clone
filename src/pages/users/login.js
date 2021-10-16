@@ -26,7 +26,7 @@ function Login(props) {
     <Fragment>
       <div className="col-12 col-md-6 h-100 w-100 justify-content-center d-flex">
         <form className="form" onSubmit={loginHandler}>
-          <div className="form-group">
+          <div className="form-group mb-2">
             <label htmlFor="username">Username</label>
             <input 
               type="text" 
@@ -36,7 +36,7 @@ function Login(props) {
               onChange={(e) => setUserName(e.target.value)}
             ></input>
           </div>
-          <div className="form-group">
+          <div className="form-group mb-2">
             <label htmlFor="password">Password</label>
             <input 
               type="password" 
@@ -46,14 +46,13 @@ function Login(props) {
               onChange={(e) => setPassword(e.target.value)}
             ></input>
           </div>
-          {
-            <p>{ props.error ? props.error.data : '' }</p>
-          }
-          <button 
-            type="submit"
-            className="btn btn-primary"
-            disabled={props.isLoading}
-          >Login</button>
+          <div className="form-group mb-2">
+            <button 
+              type="submit"
+              className="btn btn-primary"
+              disabled={props.isLoading}
+            >Login</button>
+          </div>
         </form>
       </div>
     </Fragment>
@@ -63,7 +62,6 @@ function Login(props) {
 function mapStateToProps(state) {
   return {
     user: state.user.user,
-    error: state.user.error,
     isLoading: state.user.isLoading
   };
 }
