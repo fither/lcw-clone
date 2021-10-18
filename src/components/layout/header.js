@@ -38,8 +38,9 @@ function Header(props) {
   return (
     <header>
       <nav className="navbar navbar-expand-md navbar-light bg-light">
-        <a className="navbar-brand" href="/">
-
+        {/* eslint-disable-next-line */}
+        <a className="navbar-brand" href="">
+          Build Type: { process.env.NODE_ENV }
         </a>
         <button
           className="navbar-toggler"
