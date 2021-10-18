@@ -64,7 +64,7 @@ function Products(props) {
       value={category}
       onChange={(e) => setCategory(e.target.value)}
     >
-      <option value={""} selected hidden>Seçim yapınız</option>
+      <option value={""} defaultValue hidden>Seçim yapınız</option>
       {
         props.categories.map((category) => {
           return (

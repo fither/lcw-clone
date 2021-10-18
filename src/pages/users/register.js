@@ -2,6 +2,7 @@ import { useState } from "react"
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actions from '../../actions/user';
+import validation from "../../utils/validation";
 
 function Register(props) {
   const [name, setName] = useState('');
@@ -14,7 +15,7 @@ function Register(props) {
   const registerHandler = async (event) => {
     event.preventDefault()
 
-    if(!validateEmail(email) || !checkPassword()) {
+    if(!validation.email(email) || !checkPassword()) {
       return;
     }
 
@@ -37,11 +38,6 @@ function Register(props) {
       passwordAgain !== '' &&
       password === passwordAgain
     )
-  }
-
-  const validateEmail = (email) => {
-    var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
   }
 
   return (

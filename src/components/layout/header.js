@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getToken } from '../../utils/token';
 import { bindActionCreators } from 'redux';
-import * as actions from '../../actions/user'
+import { getCurrentUser } from '../../actions/user'
 
 function Header(props) {
   const [show, setShow] = useState('');
@@ -132,7 +132,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     actions: {
-      getCurrentUser: bindActionCreators(actions.getCurrentUser, dispatch)
+      getCurrentUser: bindActionCreators(getCurrentUser, dispatch)
     }
   }
 }
