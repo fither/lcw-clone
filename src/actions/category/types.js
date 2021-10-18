@@ -1,0 +1,8 @@
+const types = {
+  GET_CATEGORIES: 'GET_CATEGORIES',
+  ADD_CATEGORY: 'ADD_CATEGORY',
+  DELETE_CATEGORY: 'DELETE_CATEGORY',
+  LOADING: 'LOADING'
+}
+
+export default types;

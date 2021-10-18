@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux'; 
 import { bindActionCreators } from 'redux';
 import actions from '../actions/product';
+import categoryActions from '../actions/category';
 import { toast } from 'react-toastify';
 
 function Products(props) {
@@ -85,11 +86,11 @@ function Products(props) {
       <table className="table">
         <thead>
           <tr>
-            <td>id</td>
-            <td>Name</td>
-            <td>Category</td>
-            <td>Price</td>
-            <td>Action</td>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -119,7 +120,9 @@ function Products(props) {
               <button
                 className="btn btn-secondary btn-sm"
                 onClick={addhandler}
-              ><i className="fas fa-plus"></i></button>
+              >
+                <i className="fas fa-plus"></i>
+              </button>
             </td>
           </tr>
           {
@@ -164,9 +167,7 @@ function mapStateToProps(state) {
   return {
     product: state.product.product,
     products: state.product.products,
-    categories: state.product.categories,
-    getError: state.product.getError,
-    deleteError: state.product.deleteError,
+    categories: state.category.categories,
     isLoading: state.product.isLoading
   };
 }
@@ -175,7 +176,7 @@ function mapDispatchToProps(dispatch) {
   return {
     actions: {
       getProducts: bindActionCreators(actions.getProducts, dispatch),
-      getCategories: bindActionCreators(actions.getCategories, dispatch),
+      getCategories: bindActionCreators(categoryActions.getCategories, dispatch),
       add: bindActionCreators(actions.add, dispatch),
       delete: bindActionCreators(actions.delete, dispatch)
     },

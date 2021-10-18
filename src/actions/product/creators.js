@@ -5,10 +5,6 @@ const creators = {
     type: types.GET_PRODUCTS,
     products
   }),
-  getCategories: ({categories}) => ({
-    type: types.GET_CATEGORIES,
-    categories
-  }),
   delete: ({product}) => ({
     type: types.DELETE_PRODUCT,
     product

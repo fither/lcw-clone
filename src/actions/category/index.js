@@ -1,28 +1,28 @@
-import creators from './creators';
-import Axios from '../../plugins/axios';
+import creators from "./creators";
+import Axios from "../../plugins/axios";
 
 const actions = {
-  getProducts: () => {
+  getCategories: () => {
     return async (dispatch) => {
       dispatch(creators.loading(true));
-      Axios.get('/product')
+      Axios.get('/category')
       .then((response) => {
         if(response.data.length) {
-          dispatch(creators.getProducts({products: response.data}));
+          dispatch(creators.getCategories({categories: response.data}));
         } else {
-          dispatch(creators.getProducts({products: []}));
+          dispatch(creators.getCategories({categories: []}));
         }
       });
       dispatch(creators.loading(false));
     }
   },
-  add: (product) => {
+  add: (category) => {
     return async (dispatch) => {
       dispatch(creators.loading(true));
-      Axios.post('/product', product)
+      Axios.post('/category', category)
       .then((response) => {
         if(!!response.data) {
-          dispatch(creators.add({product: response.data}));
+          dispatch(creators.add({category: response.data}));
         }
       });
       dispatch(creators.loading(false));
@@ -31,14 +31,14 @@ const actions = {
   delete: (id) => {
     return async (dispatch) => {
       dispatch(creators.loading(true));
-      Axios.delete('/product', { params: { id } })
+      Axios.delete('/category', { params: { id }})
       .then((response) => {
         if(!!response.data) {
-          dispatch(creators.delete({product: response.data}));
+          dispatch(creators.delete({category: response.data}));
         }
       });
       dispatch(creators.loading(false));
-    } 
+    }    
   }
 }
 

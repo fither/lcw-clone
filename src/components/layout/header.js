@@ -8,7 +8,6 @@ import { getCurrentUser } from '../../actions/user'
 function Header(props) {
   const [show, setShow] = useState('');
   const [usersMenu, setIsUsersMenuOn] = useState('');
-  const [personsMenu, setIsPersonsMenuOn] = useState('');
 
   const checkUser = () => {
     if(!!getToken()) {
@@ -26,11 +25,15 @@ function Header(props) {
   }
 
   const openDropdown = (item) => {
-    item === 'users' ? setIsUsersMenuOn('show') : setIsPersonsMenuOn('show');
+    if(item === 'users') {
+      setIsUsersMenuOn('show');
+    }
   }
 
   const closeDropdown = (item) => {
-    item === 'users' ? setIsUsersMenuOn('') : setIsPersonsMenuOn('');
+    if(item === 'users') {
+      setIsUsersMenuOn('');
+    }
   }
 
   const isLogged = !!props.user && Object.keys(props.user).length;
@@ -38,9 +41,10 @@ function Header(props) {
   return (
     <header>
       <nav className="navbar navbar-expand-md navbar-light bg-light">
-        {/* eslint-disable-next-line */}
-        <a className="navbar-brand" href="" style={{position: 'absolute'}}>
+        <h6 style={{position: 'absolute', left: '0', top: 0}}>
           Build Type: { process.env.NODE_ENV }
+        </h6>
+        <a className="navbar-brand" href="/">
         </a>
         <button
           className="navbar-toggler"
@@ -83,30 +87,8 @@ function Header(props) {
             <li className="nav-item">
               <Link className="nav-link" to="/products">Products</Link>
             </li>
-            <li
-              className="nav-item dropdown"
-              onMouseLeave={() => closeDropdown('person')}
-            >
-              <Link
-                className="nav-link dropdown-toggle"
-                to="/person"
-                onMouseOver={() => openDropdown('person')}
-              >Person</Link>
-              <div className={ "dropdown-menu " + personsMenu }>
-                <Link className="dropdown-item" to="/person/list">
-                  Person List
-                </Link>
-                <Link className="dropdown-item" to="/person/add">
-                  Person Add
-                </Link>
-                <Link className="dropdown-item" to="/person/favorites">
-                  Favorites
-                </Link>
-                <div className="dropdown-divider"></div>
-                <Link className="dropdown-item" to="/person">
-                  #
-                </Link>
-              </div>
+            <li className="nav-item">
+              <Link className="nav-link" to="/categories">Categories</Link>
             </li>
             {
               isLogged ? 

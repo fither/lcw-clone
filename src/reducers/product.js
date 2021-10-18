@@ -1,8 +1,8 @@
 import types from '../actions/product/types';
 
 const initial_state = {
+  product: {},
   products: [],
-  categories: [],
   isLoading: false
 }
 
@@ -22,11 +22,6 @@ export default function productReducer(state = initial_state, action) {
       return {
         ...state,
         product: action.product
-      }
-    case types.GET_CATEGORIES:
-      return {
-        ...state,
-        categories: action.categories
       }
     case types.LOADING:
       return {
