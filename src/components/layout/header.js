@@ -39,7 +39,7 @@ function Header(props) {
     <header>
       <nav className="navbar navbar-expand-md navbar-light bg-light">
         {/* eslint-disable-next-line */}
-        <a className="navbar-brand" href="">
+        <a className="navbar-brand" href="" style={{position: 'absolute'}}>
           Build Type: { process.env.NODE_ENV }
         </a>
         <button
