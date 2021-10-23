@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import '../../style/shared/questionYesNo.css';
 
 export default class QuestionYesNo extends Component {
   shakeQuestionBox() {

@@ -12,7 +12,7 @@ import Confirm from '../../pages/users/confirm';
 
 const Main = (props) => {
   return (
-    <main className="container">
+    <div className="container-fluid main-wrapper">
       {
         <Switch>
           <PrivateRoute exact path="/" component={Home}></PrivateRoute>
@@ -25,7 +25,7 @@ const Main = (props) => {
           <Route exact path="/users/confirm" component={Confirm}></Route>
         </Switch>
       }
-    </main>
+    </div>
   )
 }
 

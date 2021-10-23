@@ -1,0 +1,110 @@
+.search--bar {
+  width: 100%;
+  position: relative;
+  display: flex;
+  border: 0.1rem solid #cbcbcb;
+
+  &.show {
+    border-color: blue;
+
+    .search--bar__search-results {
+      visibility: visible;
+      opacity: 1;
+      z-index: 2;
+    }
+
+    .search--bar__search-button {
+      border-color: blue !important;
+      color: #fff !important;
+      background-color: darkblue;
+    }
+
+    .search--bar__clear-icon {
+      visibility: visible;
+      opacity: 1;
+      z-index: 2;
+    }
+  }
+}
+
+.search--bar__search-input {
+  width: 100%;
+  padding: 0.75rem;
+  padding-left: 50px;
+  outline: none;
+  border: none;
+}
+
+.search--bar__search-icon {
+  position: absolute;
+  height: 100%;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #a4a4a4;
+}
+
+.search--bar__clear-icon {
+  display: flex;
+  position: absolute;
+  height: 100%;
+  width: 50px;
+  visibility: hidden;
+  opacity: 0;
+  z-index: -1;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  right: 80px;
+  top: 0;
+  transition: 200ms ease-out;
+}
+
+.search--bar__search-button {
+  width: 85px;
+  border-left: 0.1rem solid #cbcbcb !important;
+  border-radius: 0 !important;
+  transition: 200ms ease-out !important;
+  outline: none;
+  font-weight: 700 !important;
+}
+
+.search--bar__search-button:hover {
+  color: #fff !important;
+  background-color: darkblue;
+}
+
+.search--bar__search-results {
+  position: absolute;
+  top: 3rem;
+  width: calc(100% + 0.2rem);
+  border: 0.1rem solid blue;
+  background-color: #fff;
+  visibility: hidden;
+  z-index: -1;
+  height: auto;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 0.5rem 1.5rem;
+  margin-left: -0.1rem;
+  transition: 200ms ease-out;
+  opacity: 0;
+}
+
+.search--bar__search-results .result-item {
+  display: block;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+}
+
+.search--bar__search-results .result-item:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.result-item__highlight {
+  font-weight: 700;
+  color: black;
+}

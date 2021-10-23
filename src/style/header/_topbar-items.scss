@@ -1,0 +1,99 @@
+.topbar {
+  padding: 0;
+  a {
+    color: #333;
+    text-decoration: none;
+  }
+  .topbar-items {
+    list-style: none;
+    display: flex;
+    position: relative;
+    margin: 0;
+    padding: 0;
+
+    li:nth-last-child(1) {
+      margin-left: auto;
+    }
+
+    li {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+    }
+
+    .topbar-item {
+      cursor: pointer;
+      border-bottom: 0.1rem solid rgba(0, 0, 0, 0);
+    }
+
+    .topbar-item:hover {
+      color: blue;
+      border-bottom: 0.1rem solid blue;
+    }
+
+    .topbar-item-link {
+      display: flex;
+
+      & > div {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+  .mega-menu {
+    position: absolute;
+    display: flex;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    padding: 2rem 1rem;
+    visibility: hidden;
+    opacity: 0;
+    z-index: -1;
+    transition: 200ms ease-out;
+    box-shadow: 0 2px 5px black;
+
+    &.show {
+      visibility: visible;
+      opacity: 1;
+      z-index: 2;
+    }
+
+    a {
+      text-decoration: none;
+      width: auto;
+      width: fit-content;
+    }
+
+    li {
+      display: inline-block;
+      width: 50%;
+    }
+
+    .row {
+      flex: 1 100%;
+    }
+
+    .col {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mega-menu-title {
+      color: #333;
+      font-weight: 600;
+      font-size: 1.25rem;
+    }
+
+    .mega-menu-item {
+      color: #666;
+      font-weight: 400;
+      font-size: 1rem;
+    }
+
+    .mega-menu-item:hover,
+    .mega-menu-title:hover {
+      color: rgb(61, 61, 255);
+      text-decoration: underline;
+    }
+  }
+}
