@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from "react-router-dom";
 import MegaMenuItems from '../../data/categories/kadin';
-import TopbarFirst from '../../data/topbarItems';
+import TopbarItemsList from '../../data/TopbarItemsList';
 import MegamenuItem from './megamenuItem';
 
 export default function TopbarItems(props) {
@@ -14,7 +14,7 @@ export default function TopbarItems(props) {
     >
       <ul className="topbar-items">
         {
-          TopbarFirst.map((item) => {
+          TopbarItemsList.map((item) => {
             return (
               <li>
                 <div className="topbar-item">
