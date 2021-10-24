@@ -1,3 +1,7 @@
+# DEVELOPER NOTE
+
+Yep, i know that it's a clone website but i should start from somewhere.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -7,14 +7,14 @@
   &.show {
     border-color: blue;
 
-    .search--bar__search-results {
+    .search--bar__menu {
       visibility: visible;
       opacity: 1;
       z-index: 2;
     }
 
     .search--bar__search-button {
-      border-color: blue !important;
+      border-color: darkblue !important;
       color: #fff !important;
       background-color: darkblue;
     }
@@ -75,7 +75,7 @@
   background-color: darkblue;
 }
 
-.search--bar__search-results {
+.search--bar__menu {
   position: absolute;
   top: 3rem;
   width: calc(100% + 0.2rem);
@@ -90,6 +90,27 @@
   margin-left: -0.1rem;
   transition: 200ms ease-out;
   opacity: 0;
+
+  .frequently-searched {
+    .frequently-searched__title {
+      font-weight: 700;
+    }
+
+    .frequently-searched__item {
+      display: inline-block;
+      padding: 0.5rem;
+      border: 0.1rem solid #cbcbcb;
+      margin: 0.2rem 0.5rem;
+      cursor: pointer;
+      color: #333;
+      text-decoration: none;
+
+      &:hover {
+        background-color: blue;
+        color: white;
+      }
+    }
+  }
 }
 
 .search--bar__search-results .result-item {

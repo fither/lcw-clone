@@ -1,9 +1,6 @@
 .topbar {
   padding: 0;
-  a {
-    color: #333;
-    text-decoration: none;
-  }
+
   .topbar-items {
     list-style: none;
     display: flex;
@@ -13,11 +10,25 @@
 
     li:nth-last-child(1) {
       margin-left: auto;
+      width: auto;
+      display: flex;
+
+      hr {
+        width: 0.1rem;
+        color: #333;
+        margin: 0;
+        height: 100%;
+      }
     }
 
     li {
       display: inline-block;
       padding: 0.5rem 1rem;
+
+      a {
+        color: #333;
+        text-decoration: none;
+      }
     }
 
     .topbar-item {
@@ -32,9 +43,15 @@
 
     .topbar-item-link {
       display: flex;
+      white-space: nowrap;
 
       & > div {
         margin-right: 0.5rem;
+      }
+
+      &:hover {
+        text-decoration: underline;
+        color: blue;
       }
     }
   }
@@ -50,7 +67,7 @@
     opacity: 0;
     z-index: -1;
     transition: 200ms ease-out;
-    box-shadow: 0 2px 5px black;
+    box-shadow: 0 5px 5px black;
 
     &.show {
       visibility: visible;
@@ -64,9 +81,29 @@
       width: fit-content;
     }
 
+    .col-4 {
+      li {
+        width: 50%;
+      }
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+
+      &.one-col {
+        display: flex;
+        flex-direction: column;
+      }
+
+      &.one-row {
+        display: flex;
+        white-space: nowrap;
+      }
+    }
+
     li {
       display: inline-block;
-      width: 50%;
     }
 
     .row {
@@ -74,8 +111,7 @@
     }
 
     .col {
-      display: flex;
-      flex-direction: column;
+      padding: 0;
     }
 
     .mega-menu-title {
@@ -87,7 +123,7 @@
     .mega-menu-item {
       color: #666;
       font-weight: 400;
-      font-size: 1rem;
+      font-size: 0.85rem;
     }
 
     .mega-menu-item:hover,

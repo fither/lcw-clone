@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Link } from "react-router-dom";
 import MegaMenuItems from '../../data/categories/kadin';
-import TopBarItems from '../../data/topbaritems';
+import TopbarFirst from '../../data/topbarItems';
+import MegamenuItem from './megamenuItem';
 
 export default function TopbarItems(props) {
   const [show, setShow] = useState('')
@@ -13,7 +14,7 @@ export default function TopbarItems(props) {
     >
       <ul className="topbar-items">
         {
-          TopBarItems.map((item) => {
+          TopbarFirst.map((item) => {
             return (
               <li>
                 <div className="topbar-item">
@@ -26,7 +27,16 @@ export default function TopbarItems(props) {
           })
         }
         <li>
-          <Link className="topbar-item-link" to="/">
+          <Link className="topbar-item-link mx-2" to="/">
+            <div>
+              <i className="fas fa-truck-loading"></i>
+            </div>
+            <span>
+              Hızlı Teslimat
+            </span>
+          </Link>
+          <hr />
+          <Link className="topbar-item-link mx-2" to="/">
             <div>
               <i className="fas fa-shipping-fast"></i>
             </div>
@@ -37,39 +47,21 @@ export default function TopbarItems(props) {
         </li>
       </ul>
       <div className={`mega-menu ` + show}>
-        <div className="row w-full">
+        <div className="row w-full px-5">
           <div className="col col-4">
-            <ul style={{listStyle: 'none'}}>
-              <li>
-                <Link className="mega-menu-title" to={MegaMenuItems.url}>
-                  {MegaMenuItems.title}
-                </Link>
-              </li>
-            </ul>
-            <ul style={{listStyle: 'none'}}>
-              {
-                MegaMenuItems.childs.map((child) => {
-                  return (
-                    <li>
-                      <Link className="mega-menu-item" to={child.url}>
-                        {child.name}
-                      </Link>
-                    </li>
-                  )
-                })
-              }
-              <Link to="/">
-                <span style={{marginRight: '.5rem'}}>
-                  Tümünü Göster
-                </span>
-                <i className="fas fa-arrow-right"></i>
-              </Link>
-            </ul>
+            <MegamenuItem MegaMenuItems={MegaMenuItems[0]} singleCol={false} />
           </div>
-          <div className="col col-4">
+          <div className="col col-2">
+            <MegamenuItem MegaMenuItems={MegaMenuItems[1]} singleCol={true} />
           </div>
-          <div className="col col-4">
-
+          <div className="col col-2">
+            <MegamenuItem MegaMenuItems={MegaMenuItems[2]} singleCol={true} />
+          </div>
+          <div className="col col-2">
+            <MegamenuItem MegaMenuItems={MegaMenuItems[3]} singleCol={true} />
+          </div>
+          <div className="col col-2">
+            <MegamenuItem MegaMenuItems={MegaMenuItems[4]} singleCol={true} />
           </div>
         </div>
       </div>
