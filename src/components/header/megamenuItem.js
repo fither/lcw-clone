@@ -13,9 +13,9 @@ export default function MegamenuItem(props) {
       </ul>
       <ul className={ props.singleCol ? 'one-col' : ''}>
         {
-          props.MegaMenuItems.childs.map((child) => {
+          props.MegaMenuItems.childs.map((child, index) => {
             return (
-              <li>
+              <li key={index}>
                 <Link className="mega-menu-item" to={child.url}>
                   {child.title}
                 </Link>

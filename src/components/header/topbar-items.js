@@ -14,11 +14,11 @@ export default function TopbarItems(props) {
     >
       <ul className="topbar-items">
         {
-          TopbarItemsList.map((item) => {
+          TopbarItemsList.map((item, index) => {
             return (
-              <li>
+              <li key={index}>
                 <div className="topbar-item">
-                  <Link to="/" onMouseOver={() => setShow('show')}>
+                  <Link to="/products" onMouseOver={() => setShow('show')}>
                     {item}
                   </Link>
                 </div>
@@ -35,7 +35,7 @@ export default function TopbarItems(props) {
               Hızlı Teslimat
             </span>
           </Link>
-          <hr />
+          <hr className="vertical-hr"/>
           <Link className="topbar-item-link mx-2" to="/">
             <div>
               <i className="fas fa-shipping-fast"></i>

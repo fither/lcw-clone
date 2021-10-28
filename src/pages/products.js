@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import actions from '../actions/product';
 import categoryActions from '../actions/category';
 import { toast } from 'react-toastify';
+import Breadcrumbs from '../components/layout/breadcrumbs';
 
 function Products(props) {
   const [name, setName] = useState('');
@@ -79,10 +80,27 @@ function Products(props) {
       }
     </select>
   )
+
+  let breadcrumbs = [
+    {
+      title: 'Ana Sayfa',
+      url: '/'
+    },
+    {
+      title: 'Mağaza',
+      url: '/'
+    }
+  ]
   
   return (
-    <div>
-      <h1>Products</h1>
+    <div className="container-fluid">
+      <Breadcrumbs breadcrumbs={breadcrumbs} />
+      <h6>62453 Ürün</h6>
+      <div className="row">
+        <div className="col col-12 col-md-3">
+
+        </div>
+      </div>
       <table className="table">
         <thead>
           <tr>

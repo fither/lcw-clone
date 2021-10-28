@@ -1,3 +1,5 @@
+@import "../variables.scss";
+
 .header {
   position: fixed;
   top: 0;
@@ -7,6 +9,7 @@
   padding: 1.25rem 1.25rem 0 1.25rem;
   box-shadow: 0 0 25px black;
   z-index: 2;
+  background-color: #fff;
 }
 
 .header__logo {
@@ -16,4 +19,25 @@
 .header__logo img {
   width: 100%;
   height: auto;
+}
+
+.header__logo-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__account-col {
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: $width-xs) {
+  .header__logo-col {
+    justify-content: flex-start;
+  }
+
+  .header__account-col {
+    justify-content: flex-end;
+  }
 }

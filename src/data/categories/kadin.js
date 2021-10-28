@@ -1,267 +1,267 @@
 const items = [
   {
     title: 'Giyim',
-    url: '/',
+    url: '/products',
     childs: [
       {
         title: 'Sweatshirt',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Kazak',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Jean',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Elbise',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Tunik',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Bluz',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Pantolon',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Gömlek',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Hırka',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Tişört',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Eşofman Altı',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Tayt',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Aktif Spor',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Etek',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Atlet',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Şort ve Capri',
-        url: '/'
+        url: '/products'
       },
       {
-        title: 'Modest / Tesettür Giyim',
-        url: '/'
+        title: 'Modest /products Tesettür Giyim',
+        url: '/products'
       },
       {
         title: 'Büyük Beden',
-        url: '/'
+        url: '/products'
       },
       {
-        title: '7/24 Basic Tarzı',
-        url: '/'
+        title: '7/products24 Basic Tarzı',
+        url: '/products'
       },
       {
         title: 'Hamile Giyim',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Gamze Saraçoğlu',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Nebahat Çehre Seçimleri',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Nur Bilen Yavuzer',
-        url: '/'
+        url: '/products'
       }
     ]
   },
   {
     title: 'DIŞ GİYİM',
-    url: '/',
+    url: '/products',
     childs :[
       {
         title: 'Mont ve Kaban',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Yelek',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Ceket',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Blazer Ceket',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Jean Ceket',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Outdoor Koleksiyonu',
-        url: '/'
+        url: '/products'
       }
     ]
   },
   {
     title: 'İÇ GİYİM, PİJAMA, ÇORAP',
-    url: '/',
+    url: '/products',
     childs: [
       {
         title: 'Pijama',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'İç Giyim',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Çorap',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Çoklu Paketler',
-        url: '/'
+        url: '/products'
       }
     ]
   },
   {
     title: 'AKSESUAR',
-    url: '/',
+    url: '/products',
     childs: [
       {
         title: 'Kışlık Aksesuarlar',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Çanta',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Kemer ve Cüzdan',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Atkı,Bere ve Eldiven',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Şemsiye',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Şapka',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Parfüm ve Kişisel Bakım',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Spor ve Kamp Malzemeler',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Elektronik Ürünler',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Fular ve Kravat',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Seyahat Ürünleri',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Plaj Havlusu',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Diğer Aksesuarlar',
-        url: '/'
+        url: '/products'
       }
     ]
   },
   {
     title: 'AYAKKABI',
-    url: '/',
+    url: '/products',
     childs: [
       {
         title: 'BUB X LC WAIKIKI',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Bot',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Ev Terliği, Panduf ve Ev Botu',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Spor Ayakkabı',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Trekking',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Klasik Ayakkabı',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Hakiki Deri Ayakkabılar',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Spor ve Kamp Malzemeler',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Lisanslı Ayakkabılar',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Ayakkabı İç Tabanlık',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Fırsat Ürünleri',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Terlik ve Sandalet',
-        url: '/'
+        url: '/products'
       },
       {
         title: 'Plaj Terliği',
-        url: '/'
+        url: '/products'
       }
     ]
   }

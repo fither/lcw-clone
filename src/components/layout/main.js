@@ -2,13 +2,13 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import PrivateRoute from '../../utils/authComponent';
 import Home from '../../pages/home';
-import ListUsers from '../../pages/users/listUsers'
+import ListUsers from '../../pages/account/listUsers'
 import Products from '../../pages/products';
 import Categories from '../../pages/categories';
-import Login from '../../pages/users/login';
-import Logout from '../../pages/users/logout';
-import Register from '../../pages/users/register';
-import Confirm from '../../pages/users/confirm';
+import Login from '../../pages/account/login';
+import Logout from '../../pages/account/logout';
+import Register from '../../pages/account/register';
+import Confirm from '../../pages/account/confirm';
 
 const Main = (props) => {
   return (

@@ -1,0 +1,25 @@
+.breadcrumbs {
+  display: flex;
+  padding: 0;
+
+  li {
+    display: inline-block;
+
+    a {
+      text-decoration: none;
+    }
+
+    span {
+      color: #333;
+
+      &.last {
+        color: #111;
+      }
+    }
+
+    i {
+      color: #777;
+      cursor: auto;
+    }
+  }
+}

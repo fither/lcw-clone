@@ -3,9 +3,20 @@
 @import "./header/topbar-items";
 @import "./header/header";
 @import "./header/account";
+@import "./header/hamburger-menu";
 
-// MAIN
+// ACCOUNT
+@import "./account/register.scss";
+
+// HOME
+@import "./home//home";
+
+// LAYOUT
 @import "./layout/main";
+@import "./layout/breadcrumbs";
 
 // SHARED
 @import "./shared/questionYesNo";
+
+// CUSTOM
+@import "./custom";

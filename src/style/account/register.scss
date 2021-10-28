@@ -1,0 +1,45 @@
+@import "../variables.scss";
+
+.register {
+  .form {
+    width: 350px;
+  }
+
+  .form-group {
+    position: relative;
+
+    .form-input {
+      position: relative;
+
+      i {
+        position: absolute;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 0.5rem;
+        cursor: auto;
+
+        &.clickable {
+          cursor: pointer;
+        }
+      }
+
+      input {
+        padding-left: 2rem;
+      }
+    }
+
+    .form-error {
+      color: red;
+      visibility: hidden;
+      opacity: 0;
+      transition: 150ms ease-out;
+
+      &.show {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+}

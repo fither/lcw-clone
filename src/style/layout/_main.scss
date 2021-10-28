@@ -1,8 +1,22 @@
+@import "../variables.scss";
+
 .main-wrapper {
   position: relative;
-  top: 140px;
+  top: 190px;
 }
 
 i {
   cursor: pointer;
+}
+
+@media (min-width: $width-sm) {
+  .main-wrapper {
+    top: 145px;
+  }
+}
+
+@media (min-width: $width-md) {
+  .main-wrapper {
+    top: 130px;
+  }
 }

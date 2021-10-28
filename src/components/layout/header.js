@@ -7,6 +7,7 @@ import Search from '../header/search';
 import TopbarItems from '../header/topbar-items';
 import HeaderAccount from '../header/header-account';
 import Logo from '../shared/logo';
+import HamburgerMenu from '../header/hamburger-menu';
 
 function Header(props) {
   const checkUser = () => {
@@ -27,18 +28,24 @@ function Header(props) {
       <h6 style={{position: 'absolute', left: '0', top: 0}}>
         Build Type: { process.env.NODE_ENV }
       </h6>
-      <div className="row g-0 justify-content-around">
-        <div className="col col-3 d-flex align-items-center">
+      <div className="row g-0 justify-content-between">
+        <div className="header__hamburger-col d-flex d-md-none col-1">
+          <HamburgerMenu />
+        </div>
+        <div className="header__logo-col col col-11 col-sm-6 col-lg-3">
           <Logo />
         </div>
-        <div className="col col-6">
+        <div className="header__search-col col col-6 d-none d-lg-flex">
           <Search />
         </div>
-        <div className="col col-3 d-flex justify-content-end">
+        <div className="header__account-col col col-12 col-sm-6 col-lg-3">
           <HeaderAccount isLogged={isLogged} />
         </div>
+        <div className="header__search-bottom-col col col-12 d-lg-none mb-2">
+          <Search />
+        </div>
       </div>
-      <div className="row">
+      <div className="row d-none d-lg-flex">
         <TopbarItems />
       </div>
     </div>
