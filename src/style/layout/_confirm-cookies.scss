@@ -1,0 +1,44 @@
+@import "../variables.scss";
+
+.confirm-cookies {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: auto;
+  max-width: 35vw;
+  height: auto;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 5px;
+  filter: drop-shadow(0 0 0.5rem #000);
+  transition: 450ms ease-out;
+  visibility: hidden;
+  opacity: 0;
+  z-index: -1;
+
+  &.show {
+    visibility: visible;
+    opacity: 1;
+    z-index: 1;
+  }
+
+  .head {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1.5rem;
+    margin-bottom: -0.25rem;
+    margin-top: -0.25rem;
+  }
+
+  .content {
+    font-size: 0.8rem;
+    line-height: 0.85rem;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+}

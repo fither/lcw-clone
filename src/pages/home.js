@@ -4,6 +4,9 @@ import { Carousel } from "react-bootstrap";
 export default function Home(props) {
   return (
     <div>
+      <div className="my-3">
+        <img src="https://img-lcwaikiki1.mncdn.com/mnresize/1920/-/Resource/Images/Banner/291021-29ekim.jpg" className="w-100" alt=""></img>
+      </div>
       <Carousel>
         <Carousel.Item>
           <img
@@ -55,6 +58,13 @@ export default function Home(props) {
             alt=""
           />
         </div>
+      </div>
+      <div className="pb-3">
+        <img
+          src="https://img-lcwaikiki1.mncdn.com/mnresize/1920/-/Resource/Images/Banner/251021-coksatanlar.jpg"
+          className="w-100"
+          alt=""
+        ></img>
       </div>
     </div>
   )

@@ -108,7 +108,7 @@ function Register(props) {
             { passwordError }
           </small>
         </div>
-        <div className="form-group mb-2">
+        {/* <div className="form-group mb-2">
           <label htmlFor="lastname">Surname</label>
           <input
             type="text"
@@ -127,8 +127,8 @@ function Register(props) {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           ></input>
-        </div>
-        <div className="form-group mb-2">
+        </div> */}
+        {/* <div className="form-group mb-2">
           <label htmlFor="email">E-Mail</label>
           <input
             type="email"
@@ -147,8 +147,8 @@ function Register(props) {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           ></input>
-        </div>
-        <div className="form-group mb-2">
+        </div> */}
+        {/* <div className="form-group mb-2">
           <label htmlFor="password-again">Password (Again)</label>
           <input
             type="password"
@@ -157,7 +157,7 @@ function Register(props) {
             value={passwordAgain}
             onChange={(e) => setPasswordAgain(e.target.value)}
           ></input>
-        </div>
+        </div> */}
         {
           props.result ? <p>{props.result}</p> : ''
         }
@@ -165,10 +165,12 @@ function Register(props) {
           <div className="form-action">
             <button 
               type="submit"
-              className="btn btn-primary"
+              className="btn btn-primary d-block w-100"
               disabled={props.isLoading}
               onClick={registerHandler}
-            >Register</button>
+            >
+              Üye Ol
+            </button>
           </div>
         </div>
       </form>

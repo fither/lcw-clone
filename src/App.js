@@ -3,6 +3,7 @@ import Header from './components/layout/header';
 import Main from './components/layout/main';
 import { ToastContainer } from 'react-toastify';
 import './style/style.scss';
+import ConfirmCookies from './components/layout/confirmCookies';
 
 const App = () => {
   return (
@@ -10,6 +11,7 @@ const App = () => {
       <Header />
       <Main />
       <ToastContainer />
+      <ConfirmCookies />
     </Fragment>
   )
 }

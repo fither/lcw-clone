@@ -51,7 +51,9 @@ function Login(props) {
               type="submit"
               className="btn btn-primary"
               disabled={props.isLoading}
-            >Login</button>
+            >
+              Giriş Yap
+            </button>
           </div>
         </form>
       </div>
